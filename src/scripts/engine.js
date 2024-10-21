@@ -19,8 +19,7 @@ const state = {
 
 function countDown() {
   state.values.curretTime--;
-  state.view.timeLeft.textContent = state.values.curretTime;
-
+  state.view.timeLeft.textContent = state.values.curretTime;  
   if (state.values.curretTime <= 0) {
     clearInterval(state.actions.countDownTimerId);
     clearInterval(state.actions.timerId);
@@ -30,15 +29,14 @@ function countDown() {
 
 function playSound(audioName) {
   let audio = new Audio(`./src/audios/${audioName}.m4a`);
-  audio.volume = 0.2;
+  audio.volume = 0.2
   audio.play();
 }
 
 function randomSquare() {
   state.view.squares.forEach((square) => {
     square.classList.remove("enemy");
-  });
-
+  });  
   let randomNumber = Math.floor(Math.random() * 9);
   let randomSquare = state.view.squares[randomNumber];
   randomSquare.classList.add("enemy");
